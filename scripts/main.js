@@ -37,25 +37,25 @@ const swapPlayer = () => {
 
 // Check game winner function
 const checkWinner = () => {
-  const won = winningChances.some((chance) => {
-    // All three values must be non-empty
-    // And should be equal in value
-    return (
-      gameGrid[chance[0]] !== "" &&
-      gameGrid[chance[1]] !== "" &&
-      gameGrid[chance[2]] !== "" &&
-      gameGrid[chance[0]] === gameGrid[chance[1]] &&
-      gameGrid[chance[1]] === gameGrid[chance[2]]
-    );
+  console.log("current player", currPlayer);
+  winningChances.forEach(([c1, c2, c3]) => {
+    c1 -= 1;
+    c2 -= 1;
+    c3 -= 1;
+    if (
+      (gameGrid[c1] !== "" || gameGrid[c2] !== "" || gameGrid[c3] !== "") &&
+      gameGrid[c1] === gameGrid[c2] &&
+      gameGrid[c2] === gameGrid[c3]
+    ) {
+      playerStatus.textContent = `${gameGrid[c1]} Won!`;
+      boxes[c1].classList.add("win");
+      boxes[c2].classList.add("win");
+      boxes[c3].classList.add("win");
+
+      // Show the new game button
+      newGameBtn.classList.add("active");
+    }
   });
-
-  console.log(won);
-
-  if (won) {
-    playerStatus.textContent = `${currPlayer} won.`;
-    newGameBtn.classList.add("active");
-    console.log(`${currPlayer} won the game!`);
-  }
 };
 
 const handleClick = (index) => {
@@ -95,6 +95,9 @@ newGameBtn.addEventListener("click", () => {
 
     // Showing them clickable
     box.style.cursor = "pointer";
+
+    // Removing green .win class
+    box.classList.remove("win");
   });
 });
 
