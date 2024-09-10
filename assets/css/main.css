@@ -33,6 +33,14 @@ input {
   min-height: 100vh;
   min-width: 100vw;
   background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  background: radial-gradient(
+    328px at 2.9% 15%,
+    rgb(191, 224, 251) 0%,
+    rgb(232, 233, 251) 25.8%,
+    rgb(252, 239, 250) 50.8%,
+    rgb(234, 251, 251) 77.6%,
+    rgb(240, 251, 244) 100.7%
+  );
   display: grid;
   place-items: center;
 }
