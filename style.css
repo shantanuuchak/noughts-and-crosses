@@ -8,6 +8,7 @@
 
 :root {
   --font: Teachers;
+  --dark: #333;
   --chalk: rgba(255, 255, 255, 0.15);
 }
 
@@ -25,15 +26,15 @@ input {
 .container {
   min-height: 100vh;
   min-width: 100vw;
-  background-color: rgba(0, 0, 0, 0.922);
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   display: grid;
   place-items: center;
 }
 
 .status {
-  color: #ffffff;
+  color: var(--dark);
   background-color: var(--chalk);
-  border: 1px solid var(--chalk);
+  border: 1px solid var(--dark);
   border-radius: 1rem;
   padding: 0.5rem 3rem;
   text-align: center;
@@ -55,7 +56,7 @@ input {
   aspect-ratio: 1/1;
   cursor: pointer;
   font-size: 2rem;
-  color: white;
+  color: var(--dark);
   display: grid;
   place-items: center;
   border: 1px solid var(--chalk);
