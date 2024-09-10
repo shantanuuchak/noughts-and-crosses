@@ -12,9 +12,16 @@ let gameGrid;
 
 // Game Logic
 const startGame = () => {
+  // Setting current player to random
   currPlayer = validPlayers[Math.floor(Math.random() * 2)];
+
+  // Filling gameGrid with empty 9 strings
   gameGrid = new Array(9).fill("");
+
+  // Removing active class from newGameBtn
   newGameBtn.classList.remove("active");
+
+  // Updating to show the current playerStatus
   playerStatus.textContent = currPlayer;
 };
 
@@ -30,7 +37,7 @@ const swapPlayer = () => {
   playerStatus.textContent = newPlayer;
 };
 
-// Check Game Winner
+// Check game winner function
 const checkWinner = () => {
   const winner = winningChances.some((el, idx) => {
     el.length === gameGrid.length &&
@@ -57,12 +64,12 @@ const handleClick = (index) => {
   }
 };
 
-// Add click Event To Every Grid Box
+// Add click event to every box
 boxes.forEach((e, i) => {
   e.addEventListener("click", () => {
     handleClick(i);
   });
 });
 
-// Disable Right Click
+// Disable right click on website
 document.addEventListener("contextmenu", (event) => event.preventDefault());
