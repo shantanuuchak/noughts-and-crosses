@@ -6,12 +6,35 @@
   box-sizing: border-box;
 }
 
+:root {
+  --font: Teachers;
+  --chalk: rgba(255, 255, 255, 0.15);
+}
+
 /* Font Settings */
 body {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font), sans-serif;
 }
 
 button,
 input {
   font-family: inherit;
+}
+
+/* General */
+.container {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: rgba(0, 0, 0, 0.922);
+  display: grid;
+  place-items: center;
+}
+
+.status {
+  color: #ffffff;
+  background-color: var(--chalk);
+  border: 1px solid var(--chalk);
+  border-radius: 1rem;
+  padding: 0.5rem 3rem;
+  text-align: center;
 }
