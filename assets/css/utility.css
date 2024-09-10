@@ -1,6 +1,6 @@
 /* ----- Utlity Class ----- */
 .active {
-  visibility: visible;
+  visibility: visible !important;
 }
 
 .win {

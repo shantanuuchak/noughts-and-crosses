@@ -67,7 +67,19 @@ boxes.forEach((box, idx) => {
 });
 
 // Reset game
-newGameBtn.addEventListener("click", startGame);
+newGameBtn.addEventListener("click", () => {
+  // Setting fresh game state
+  startGame();
+
+  // Repainting the boxes
+  boxes.forEach((box) => {
+    // Setting content to empty
+    box.textContent = "";
+
+    // Showing them clickable
+    box.style.cursor = "pointer";
+  });
+});
 
 // Disable right click on website
 document.addEventListener("contextmenu", (event) => event.preventDefault());
