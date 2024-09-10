@@ -58,6 +58,12 @@ const checkWinner = () => {
       boxes.forEach((box) => (box.style.pointerEvents = "none"));
     }
   });
+
+  // Check tie
+  const tie = gameGrid.every((value) => value !== "");
+  if (tie) {
+    playerStatus.textContent = "There is a tie!";
+  }
 };
 
 const handleClick = (index) => {
@@ -96,7 +102,7 @@ newGameBtn.addEventListener("click", () => {
     box.textContent = "";
 
     // Showing them clickable
-    box.style.cursor = "pointer";
+    box.style.pointerEvents = "auto";
 
     // Removing green .win class
     box.classList.remove("win");
