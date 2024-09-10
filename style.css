@@ -109,6 +109,12 @@ input {
   background: var(--chalk);
   cursor: pointer;
   border: 1px solid var(--dark);
+  visibility: hidden;
+}
+
+/* Toggle This */
+.active {
+  visibility: visible;
 }
 
 /*
