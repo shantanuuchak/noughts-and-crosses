@@ -31,6 +31,30 @@ input {
   place-items: center;
 }
 
+.heading {
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.heading::before {
+  content: "O";
+  font-weight: 500;
+  left: -2rem;
+  position: absolute;
+  color: red;
+}
+
+.heading::after {
+  content: "X";
+  font-weight: 500;
+  right: -2rem;
+  position: absolute;
+  color: red;
+}
+
 .status {
   color: var(--dark);
   background-color: var(--chalk);
@@ -75,6 +99,9 @@ input {
     MARK: Responsive
 */
 @media screen and (max-width: 481px) {
+  .heading {
+    font-size: 1.5rem;
+  }
   .game-grid {
     max-width: 15rem;
   }
