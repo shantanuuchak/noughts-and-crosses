@@ -60,3 +60,12 @@ input {
   place-items: center;
   border: 1px solid var(--chalk);
 }
+
+@media screen and (max-width: 481px) {
+  .game-grid {
+    max-width: 15rem;
+  }
+  .box {
+    font-size: 1.5rem;
+  }
+}
