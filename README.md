@@ -1,1 +1,1 @@
-# TicTacToe
+# Noughts and Crosses
