@@ -38,3 +38,25 @@ input {
   padding: 0.5rem 3rem;
   text-align: center;
 }
+
+.game-grid {
+  width: 100%;
+  max-width: 20rem;
+  background-color: var(--chalk);
+  border: 1px solid var(--chalk);
+  aspect-ratio: 1/1;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.box {
+  width: 100%;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--chalk);
+}
