@@ -54,6 +54,8 @@ const checkWinner = () => {
 
       // Show the new game button
       newGameBtn.classList.add("active");
+
+      boxes.forEach((box) => (box.style.pointerEvents = "none"));
     }
   });
 };
