@@ -37,8 +37,23 @@ const swapPlayer = () => {
 
 // Check game winner function
 const checkWinner = () => {
-  newGameBtn.classList.add("active");
-  console.log("Invoked");
+  const won = winningChances.some((chance) => {
+    return (
+      gameGrid[chance[0]] !== "" &&
+      gameGrid[chance[1]] !== "" &&
+      gameGrid[chance[2]] !== "" &&
+      gameGrid[chance[0]] === gameGrid[chance[1]] &&
+      gameGrid[chance[1]] === gameGrid[chance[2]]
+    );
+  });
+
+  console.log(won);
+
+  if (won) {
+    playerStatus.textContent = `${currPlayer} won.`;
+    newGameBtn.classList.add("active");
+    console.log(`${currPlayer} won the game!`);
+  }
 };
 
 const handleClick = (index) => {
