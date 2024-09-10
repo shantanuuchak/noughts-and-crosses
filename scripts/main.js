@@ -57,7 +57,7 @@ const handleClick = (index) => {
   }
 };
 
-// Add Event To Every Grid Box
+// Add click Event To Every Grid Box
 boxes.forEach((e, i) => {
   e.addEventListener("click", () => {
     handleClick(i);
