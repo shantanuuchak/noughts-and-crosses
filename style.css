@@ -12,6 +12,7 @@
   --font: Teachers;
   --dark: #333;
   --chalk: rgba(255, 255, 255, 0.15);
+  --light: rgba(7, 211, 7, 0.256);
 }
 
 /* Font Settings */
@@ -81,6 +82,7 @@ input {
   border-radius: 50px;
   background: #e0e0e0;
   box-shadow: 20px 20px 60px #bebebe57, -20px -20px 60px #ffffff42;
+  padding: 2rem;
 }
 
 .box {
@@ -93,6 +95,12 @@ input {
   place-items: center;
   border: 1px solid var(--chalk);
   font-weight: 500;
+}
+
+.box:nth-child(1),
+.box:nth-child(5),
+.box:nth-child(9) {
+  background: rgba(7, 211, 7, 0.256);
 }
 
 .btn-reset {
