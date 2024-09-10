@@ -60,8 +60,20 @@ input {
   display: grid;
   place-items: center;
   border: 1px solid var(--chalk);
+  font-weight: 500;
 }
 
+.btn-reset {
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  background: var(--chalk);
+  cursor: pointer;
+  border: 1px solid var(--dark);
+}
+
+/*
+    MARK: Responsive
+*/
 @media screen and (max-width: 481px) {
   .game-grid {
     max-width: 15rem;
