@@ -4,6 +4,7 @@ import winningChances from "./winning.js";
 const playerStatus = document.querySelector(".player");
 const boxes = document.querySelectorAll(".box");
 const newGameBtn = document.querySelector(".btn-reset");
+const heading = document.querySelector(".heading");
 
 // Game Variables
 const validPlayers = ["X", "O"]; // List of supported players
@@ -56,6 +57,8 @@ const checkWinner = () => {
       newGameBtn.classList.add("active");
 
       boxes.forEach((box) => (box.style.pointerEvents = "none"));
+
+      heading.textContent = `${gameGrid[c1]} is the Winner!`;
     }
   });
 
@@ -63,6 +66,8 @@ const checkWinner = () => {
   const tie = gameGrid.every((value) => value !== "");
   if (tie) {
     playerStatus.textContent = "There is a tie!";
+    newGameBtn.classList.add("active");
+    heading.textContent = "There is a tie!";
   }
 };
 
@@ -96,6 +101,7 @@ newGameBtn.addEventListener("click", () => {
   // Setting fresh game state
   startGame();
 
+  heading.textContent = "Noughts & Crosses";
   // Repainting the boxes
   boxes.forEach((box) => {
     // Setting content to empty
