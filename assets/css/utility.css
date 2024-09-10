@@ -6,3 +6,8 @@
 .win {
   background: rgba(7, 211, 7, 0.256);
 }
+
+.player {
+  color: red;
+  font-weight: 600;
+}
