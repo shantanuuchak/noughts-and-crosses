@@ -1,3 +1,6 @@
+@import url("variables.css");
+@import url("utility.css");
+
 /* Resets */
 *,
 *::before,
@@ -5,14 +8,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-/* Variables */
-:root {
-  --font: Teachers;
-  --dark: #333;
-  --chalk: rgba(255, 255, 255, 0.15);
-  --light: rgba(7, 211, 7, 0.256);
 }
 
 /* Font Settings */
@@ -97,12 +92,6 @@ input {
   font-weight: 500;
 }
 
-.box:nth-child(1),
-.box:nth-child(5),
-.box:nth-child(9) {
-  background: rgba(7, 211, 7, 0.256);
-}
-
 .btn-reset {
   padding: 0.5rem 2rem;
   border-radius: 1rem;
@@ -110,11 +99,6 @@ input {
   cursor: pointer;
   border: 1px solid var(--dark);
   visibility: hidden;
-}
-
-/* Toggle This */
-.active {
-  visibility: visible;
 }
 
 /*

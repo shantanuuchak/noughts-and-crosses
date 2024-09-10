@@ -1,0 +1,7 @@
+/* ----- Variables ----- */
+:root {
+  --font: Teachers;
+  --dark: #333;
+  --chalk: rgba(255, 255, 255, 0.15);
+  --light: rgba(7, 211, 7, 0.256);
+}
