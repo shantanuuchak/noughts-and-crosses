@@ -74,6 +74,11 @@ input {
   border-radius: 1rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
+  /* Neumorphic */
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe57, -20px -20px 60px #ffffff42;
 }
 
 .box {
