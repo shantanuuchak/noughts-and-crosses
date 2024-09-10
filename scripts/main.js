@@ -9,8 +9,6 @@ const newGameBtn = document.querySelector(".btn-reset");
 let player;
 let gameGrid;
 
-console.log(winningChances);
-
 // Game Logic
 const startGame = () => {
   player = "Y";
@@ -20,6 +18,23 @@ const startGame = () => {
 };
 
 startGame();
+
+const chances = [];
+
+// Function to handle click
+const handleClick = (index) => {
+  chances.push(index);
+  if (winningChances.includes(chances)) alert("Won!");
+
+  console.log(chances);
+};
+
+// Add Event To Every Grid Box
+boxes.forEach((e, i) => {
+  e.addEventListener("click", () => {
+    handleClick(i + 1);
+  });
+});
 
 // Disable Right Click
 document.addEventListener("contextmenu", (event) => event.preventDefault());
