@@ -26,7 +26,7 @@ const chances = [];
 // Function to swap player
 const swapPlayer = (currPlayer) => {
   const newPlayer =
-    validPlayer[0] == currPlayer ? validPlayers[1] : validPlayers[0];
+    validPlayer[0] === currPlayer ? validPlayers[1] : validPlayers[0];
   return newPlayer;
 };
 
