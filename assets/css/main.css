@@ -12,7 +12,7 @@
 
 /* Font Settings */
 body {
-  font-family: var(--font), sans-serif;
+  font-family: var(--font);
 
   /* Prevent Text Selection */
   -webkit-touch-callout: none;

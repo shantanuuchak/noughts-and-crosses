@@ -6,9 +6,9 @@ const boxes = document.querySelectorAll(".box");
 const newGameBtn = document.querySelector(".btn-reset");
 
 // Game Variables
-const validPlayers = ["X", "O"];
-let currPlayer;
-let gameGrid;
+const validPlayers = ["X", "O"]; // List of supported players
+let currPlayer; // Will be either X or O
+let gameGrid; // Will contain the current moves
 
 // Game Logic
 const startGame = () => {
@@ -27,8 +27,6 @@ const startGame = () => {
 
 startGame();
 
-const chances = [];
-
 // Function to swap player
 const swapPlayer = () => {
   const newPlayer =
@@ -39,14 +37,10 @@ const swapPlayer = () => {
 
 // Check game winner function
 const checkWinner = () => {
-  const winner = winningChances.some((el, idx) => {
-    el.length === gameGrid.length &&
-      el.every((el, idx) => el === gameGrid[idx]);
-  });
-  console.log(winner);
+  newGameBtn.classList.add("active");
+  console.log("Invoked");
 };
 
-// Function to handle click
 const handleClick = (index) => {
   // """
   // Function responsible to
@@ -58,18 +52,22 @@ const handleClick = (index) => {
   // """
   if (gameGrid[index] === "") {
     boxes[index].textContent = currPlayer;
-    gameGrid[index] = playerStatus;
+    gameGrid[index] = currPlayer;
+    boxes[index].style.cursor = "auto";
     swapPlayer();
     checkWinner();
   }
 };
 
-// Add click event to every box
-boxes.forEach((e, i) => {
-  e.addEventListener("click", () => {
-    handleClick(i);
+// Add handleClick on click event to every .box
+boxes.forEach((box, idx) => {
+  box.addEventListener("click", () => {
+    handleClick(idx);
   });
 });
+
+// Reset game
+newGameBtn.addEventListener("click", startGame);
 
 // Disable right click on website
 document.addEventListener("contextmenu", (event) => event.preventDefault());
