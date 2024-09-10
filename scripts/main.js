@@ -38,6 +38,8 @@ const swapPlayer = () => {
 // Check game winner function
 const checkWinner = () => {
   const won = winningChances.some((chance) => {
+    // All three values must be non-empty
+    // And should be equal in value
     return (
       gameGrid[chance[0]] !== "" &&
       gameGrid[chance[1]] !== "" &&
