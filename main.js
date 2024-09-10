@@ -1,21 +1,25 @@
+import winningChances from "./winning.js";
+
 // DOM Selection
-const playerStatus = document.querySelector(".status");
+const playerStatus = document.querySelector(".player");
 const boxes = document.querySelectorAll(".box");
 const newGameBtn = document.querySelector(".btn-reset");
 
 // Game Variables
 let player;
 let gameGrid;
-const winningChances = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-  [1, 4, 7],
-  [2, 5, 8],
-  [3, 6, 9],
-  [1, 5, 9],
-  [3, 5, 7],
-];
+
+console.log(winningChances);
+
+// Game Logic
+const startGame = () => {
+  player = "Y";
+  gameGrid = new Array(9).fill("");
+  newGameBtn.classList.remove("active");
+  playerStatus.textContent = player;
+};
+
+startGame();
 
 // Disable Right Click
 document.addEventListener("contextmenu", (event) => event.preventDefault());
