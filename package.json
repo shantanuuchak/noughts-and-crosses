@@ -1,0 +1,16 @@
+{
+  "name": "noughts-and-crosses",
+  "version": "1.0.0",
+  "description": "Classic Cross - Zero Game built using HTML, CSS & JavaScript",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "keywords": [],
+  "author": "@shantanuuchak",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
+    "parcel": "^2.12.0"
+  }
+}

@@ -1,5 +1,6 @@
-@import url("variables.css");
-@import url("utility.css");
+@use "variables" as v;
+@import "utility";
+@import "mixin";
 
 /* Resets */
 *,
@@ -12,7 +13,7 @@
 
 /* Font Settings */
 body {
-  font-family: var(--font);
+  font-family: v.$font;
 
   /* Prevent Text Selection */
   -webkit-touch-callout: none;
@@ -41,8 +42,8 @@ input {
     rgb(234, 251, 251) 77.6%,
     rgb(240, 251, 244) 100.7%
   );
-  display: grid;
-  place-items: center;
+
+  @extend %center;
 }
 
 .heading {
@@ -70,9 +71,9 @@ input {
 }
 
 .status {
-  color: var(--dark);
-  background-color: var(--chalk);
-  border: 1px solid var(--dark);
+  color: v.$dark;
+  background-color: v.$chalk;
+  border: 1px solid v.$dark;
   border-radius: 1rem;
   padding: 0.5rem 3rem;
   text-align: center;
@@ -82,17 +83,16 @@ input {
 .game-grid {
   width: 100%;
   max-width: 20rem;
-  background-color: var(--chalk);
-  border: 1px solid var(--chalk);
+  background: linear-gradient(145deg, #e6e6e6, #fff);
+  border: 1px solid v.$chalk;
   aspect-ratio: 1/1;
   border-radius: 1rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
   /* Neumorphic */
-  border-radius: 50px;
-  background: #e0e0e0;
-  box-shadow: 20px 20px 60px #bebebe57, -20px -20px 60px #ffffff42;
+  border-radius: 1rem;
+  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #fff;
   padding: 2rem;
 }
 
@@ -101,19 +101,19 @@ input {
   aspect-ratio: 1/1;
   cursor: pointer;
   font-size: 2rem;
-  color: var(--dark);
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--chalk);
+  color: v.$dark;
+  border: 1px solid v.$chalk;
   font-weight: 500;
+
+  @extend %center;
 }
 
 .btn-reset {
   padding: 0.5rem 2rem;
   border-radius: 1rem;
-  background: var(--chalk);
+  background: v.$chalk;
   cursor: pointer;
-  border: 1px solid var(--dark);
+  border: 1px solid v.$dark;
   visibility: hidden;
 }
 
