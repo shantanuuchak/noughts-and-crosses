@@ -1,18 +1,18 @@
-import winningChances from "./winning.js";
+import winningChances from "./winning";
 
 // DOM Selection
-const playerStatus = document.querySelector(".player");
-const boxes = document.querySelectorAll(".box");
-const newGameBtn = document.querySelector(".btn-reset");
-const heading = document.querySelector(".heading");
+const playerStatus = document.querySelector(".player") as HTMLElement;
+const boxes = document.querySelectorAll<HTMLElement>(".box");
+const newGameBtn = document.querySelector(".btn-reset") as HTMLElement;
+const heading = document.querySelector(".heading") as HTMLElement;
 
 // Game Variables
-const validPlayers = ["X", "O"]; // List of supported players
-let currPlayer; // Will be either X or O
-let gameGrid; // Will contain the current moves
+const validPlayers: string[] = ["X", "O"]; // List of supported players
+let currPlayer: string; // Will be either X or O
+let gameGrid: string[]; // Will contain the current moves
 
 // Game Logic
-const startGame = () => {
+const startGame = (): void => {
   // Setting current player to random
   currPlayer = validPlayers[Math.floor(Math.random() * 2)];
 
@@ -23,22 +23,20 @@ const startGame = () => {
   newGameBtn.classList.remove("active");
 
   // Updating to show the current playerStatus
-  playerStatus.textContent = currPlayer;
+  if (playerStatus) playerStatus.textContent = currPlayer;
 };
 
 startGame();
 
 // Function to swap player
-const swapPlayer = () => {
-  const newPlayer =
+const swapPlayer = (): void => {
+  currPlayer =
     validPlayers[0] === currPlayer ? validPlayers[1] : validPlayers[0];
-  currPlayer = newPlayer;
-  playerStatus.textContent = newPlayer;
+  if (playerStatus) playerStatus.textContent = currPlayer;
 };
 
 // Check game winner function
-const checkWinner = () => {
-  console.log("current player", currPlayer);
+const checkWinner = (): void => {
   winningChances.forEach(([c1, c2, c3]) => {
     c1 -= 1;
     c2 -= 1;
@@ -48,7 +46,7 @@ const checkWinner = () => {
       gameGrid[c1] === gameGrid[c2] &&
       gameGrid[c2] === gameGrid[c3]
     ) {
-      playerStatus.textContent = `${gameGrid[c1]} Won!`;
+      if (playerStatus) playerStatus.textContent = `${gameGrid[c1]} Won!`;
       boxes[c1].classList.add("win");
       boxes[c2].classList.add("win");
       boxes[c3].classList.add("win");
@@ -58,28 +56,27 @@ const checkWinner = () => {
 
       boxes.forEach((box) => (box.style.pointerEvents = "none"));
 
-      heading.textContent = `${gameGrid[c1]} is the Winner!`;
+      if (heading) heading.textContent = `${gameGrid[c1]} is the Winner!`;
     }
   });
 
   // Check tie
   const tie = gameGrid.every((value) => value !== "");
   if (tie) {
-    playerStatus.textContent = "There is a tie!";
+    if (playerStatus) playerStatus.textContent = "There is a tie!";
     newGameBtn.classList.add("active");
-    heading.textContent = "There is a tie!";
+    if (heading) heading.textContent = "There is a tie!";
   }
 };
 
-const handleClick = (index) => {
-  // """
+const handleClick = (index: number): void => {
   // Function responsible to
   // 1. Check if the .box is clickable
   // 2. Makes the box unclickable
   // 3. Adds the current Player to the box
   // 4. Invokes togglePlayer()
   // 5. Check who won
-  // """
+
   if (gameGrid[index] === "") {
     boxes[index].textContent = currPlayer;
     gameGrid[index] = currPlayer;
@@ -91,9 +88,7 @@ const handleClick = (index) => {
 
 // Add handleClick on click event to every .box
 boxes.forEach((box, idx) => {
-  box.addEventListener("click", () => {
-    handleClick(idx);
-  });
+  box.addEventListener("click", () => handleClick(idx));
 });
 
 // Reset game
@@ -101,7 +96,7 @@ newGameBtn.addEventListener("click", () => {
   // Setting fresh game state
   startGame();
 
-  heading.textContent = "Noughts & Crosses";
+  if (heading) heading.textContent = "Noughts & Crosses";
   // Repainting the boxes
   boxes.forEach((box) => {
     // Setting content to empty
