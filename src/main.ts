@@ -7,6 +7,11 @@ const newGameBtn = document.querySelector(".btn-reset") as HTMLElement;
 const heading = document.querySelector(".heading") as HTMLElement;
 
 // Game Variables
+// TODO: Add Enum Support
+enum Players {
+  X,
+  O,
+}
 const validPlayers: string[] = ["X", "O"]; // List of supported players
 let currPlayer: string; // Will be either X or O
 let gameGrid: string[]; // Will contain the current moves
