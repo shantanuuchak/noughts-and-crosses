@@ -37,9 +37,6 @@ const swapPlayer = (): void => {
 // Check game winner function
 const checkWinner = (): void => {
   winningChances.forEach(([c1, c2, c3]) => {
-    c1 -= 1;
-    c2 -= 1;
-    c3 -= 1;
     if (
       (gameGrid[c1] !== "" || gameGrid[c2] !== "" || gameGrid[c3] !== "") &&
       gameGrid[c1] === gameGrid[c2] &&
