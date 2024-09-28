@@ -1,22 +1,18 @@
 import winningChances from "./winning";
 
-// DOM Selection
+// === DOM Selection ===
 const playerStatus = document.querySelector(".player") as HTMLElement;
 const boxes = document.querySelectorAll<HTMLElement>(".box");
 const newGameBtn = document.querySelector(".btn-reset") as HTMLElement;
 const heading = document.querySelector(".heading") as HTMLElement;
 
-// Game Variables
-// TODO: Add Enum Support
-enum Players {
-  X,
-  O,
-}
+// === Game Variables ===
 const validPlayers: string[] = ["X", "O"]; // List of supported players
 let currPlayer: string; // Will be either X or O
 let gameGrid: string[]; // Will contain the current moves
 
-// Game Logic
+// === Game Logic ===
+// This function is invoked when game first starts
 const startGame = (): void => {
   // Setting current player to random
   currPlayer = validPlayers[Math.floor(Math.random() * 2)];
@@ -30,8 +26,6 @@ const startGame = (): void => {
   // Updating to show the current playerStatus
   if (playerStatus) playerStatus.textContent = currPlayer;
 };
-
-startGame();
 
 // Function to swap player
 const swapPlayer = (): void => {
@@ -117,3 +111,6 @@ newGameBtn.addEventListener("click", () => {
 
 // Disable right click on website
 document.addEventListener("contextmenu", (event) => event.preventDefault());
+
+// Start the game on initial load
+document.addEventListener("DOMContentLoaded", startGame);
